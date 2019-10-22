@@ -10,6 +10,7 @@ namespace NovemberProjektet
 	{
 		static void Main(string[] args)
 		{
+			Fighter Player1 = new Fighter();
 			string GameName = @"
     _____ _               ______ _       _ _
   / ____ | |             | ____(_) | |   | |
@@ -21,6 +22,8 @@ namespace NovemberProjektet
 			  
 												| ___ /";
 			Console.WriteLine(GameName);
+			Console.WriteLine("Välkommen! Var god och välj en karaktär du vill ha");
+			Player1.FighterChoice();
 			Console.ReadKey();
 		}
 	}
