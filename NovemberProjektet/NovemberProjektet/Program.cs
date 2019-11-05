@@ -22,7 +22,7 @@ namespace NovemberProjektet
 			  
 												| ___ /";
 			Console.WriteLine(GameName);
-			Console.WriteLine("Välkommen! Var god och välj en karaktär du vill ha");
+			Console.WriteLine("Välkommen! Var god och välj en karaktär du vill ha välj med hjälp av siffrorna.");
 			Player1.FighterChoice();
 			Console.ReadKey();
 		}
