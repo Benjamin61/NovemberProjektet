@@ -8,15 +8,47 @@ namespace NovemberProjektet
 {
 	class Fighter
 	{
-		public string FighterChoice()
+		public int FighterChoice()
 		{
+			Console.WriteLine("Välkommen! Var god och välj en karaktär du vill ha, välj med hjälp av siffrorna.");
 			Console.WriteLine("[1] Assasin");
 			Console.WriteLine("[2] Tank");
 			Console.WriteLine("[3] Wizard");
-			Console.WriteLine("[4] Martinis");
+			Console.WriteLine("[4] Goblin");
+			Console.Write("Val:");
 			string choice = Console.ReadLine();
-			Console.WriteLine(choice);
-			return choice;
+			int choiceParse;
+			bool sucsess = int.TryParse(choice, out choiceParse);
+			while (sucsess == false)
+			{
+				Console.WriteLine("Ogiltigt svar, prova igen!");
+				choice = Console.ReadLine();
+				sucsess = int.TryParse(choice, out choiceParse);
+			}
+			if (choiceParse == 1)
+			{
+				Console.WriteLine("Du valde Assasin!");
+			}
+			if (choiceParse == 2)
+			{
+				Console.WriteLine("Du valde Tank!");
+			}
+			if (choiceParse == 3)
+			{
+				Console.WriteLine("Du valde Wizard!");
+			}
+			if (choiceParse == 4)
+			{
+				Console.WriteLine("Du valde Goblin!");
+			}
+			else
+			{
+				sucsess = false;
+			}
+
+
+
+			return choiceParse;
 		}
 	}
 }
