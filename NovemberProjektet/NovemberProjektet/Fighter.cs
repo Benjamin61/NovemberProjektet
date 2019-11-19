@@ -29,10 +29,10 @@ namespace NovemberProjektet
 				choice = Console.ReadLine();
 				sucsess = int.TryParse(choice, out choiceParse);
 			}
-			if (choiceParse == 1)
+			if (choiceParse == 1) //Spelaren input = 1
 			{
 				Console.WriteLine("Du valde Assasin!");
-				AssasinHP();
+				AssasinHP(); //Skickas till metoden
 				Console.WriteLine(hp);
 
 			}
