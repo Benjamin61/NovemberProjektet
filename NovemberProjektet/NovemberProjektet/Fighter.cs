@@ -23,7 +23,7 @@ namespace NovemberProjektet
 			string choice = Console.ReadLine();
 			int choiceParse;
 			bool sucsess = int.TryParse(choice, out choiceParse);
-			while (sucsess == false)
+			while (sucsess == false || choiceParse <4 )
 			{
 				Console.WriteLine("Ogiltigt svar, prova igen!");
 				choice = Console.ReadLine();
@@ -32,7 +32,7 @@ namespace NovemberProjektet
 			if (choiceParse == 1) //Spelaren input = 1
 			{
 				Console.WriteLine("Du valde Assasin!");
-				AssasinHP(); //Skickas till metoden
+				//AssasinHP(); //Skickas till metoden
 				Console.WriteLine(hp);
 
 			}
@@ -55,7 +55,7 @@ namespace NovemberProjektet
 			return choiceParse;
 		}
 
-		public int AssasinHP()
+		/*public int AssasinHP()
 		{
 			List<int> AssasinStats = new List<int>();
 			hp = hp / 2;
@@ -66,12 +66,12 @@ namespace NovemberProjektet
 			
 			/*int[] AssasinStats = {hp, attack};
 			return AssasinStats;*/
-		}
+		//}
 
 			
 			
 			
 			
-		}
+		
 	}
 }
