@@ -22,12 +22,12 @@ namespace NovemberProjektet
 			Console.Write("Val:");
 			string choice = Console.ReadLine();
 			int choiceParse;
-			bool sucsess = int.TryParse(choice, out choiceParse);
-			while (sucsess == false || choiceParse <4 )
+			bool Translate = int.TryParse(choice, out choiceParse);
+			while (!Translate || choiceParse <1 || choiceParse >=5 ) //En while loop som körs så länge boolen inte lyckas eller choice parse inte är mellan 1 och 4
 			{
 				Console.WriteLine("Ogiltigt svar, prova igen!");
 				choice = Console.ReadLine();
-				sucsess = int.TryParse(choice, out choiceParse);
+				Translate = int.TryParse(choice, out choiceParse);
 			}
 			if (choiceParse == 1) //Spelaren input = 1
 			{
