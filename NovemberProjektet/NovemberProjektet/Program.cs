@@ -22,6 +22,7 @@ ______ _       _     _     _____ _                 _       _
          |___/                                                           
 ";
 			Console.WriteLine(GameName);
+            Console.WriteLine("Test");
 			Player1.FighterChoice();
 			
 			
