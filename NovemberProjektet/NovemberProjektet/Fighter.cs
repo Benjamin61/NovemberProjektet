@@ -12,8 +12,8 @@ namespace NovemberProjektet
 		public int attack = 5;
 		public int FighterChoice()
 		{
-			
-		
+
+
 			Console.WriteLine("Välkommen! Var god och välj en karaktär du vill ha, välj med hjälp av siffrorna.");
 			Console.WriteLine("[1] Assasin");
 			Console.WriteLine("[2] Tank");
@@ -38,6 +38,13 @@ namespace NovemberProjektet
 			}
 			if (choiceParse == 2)
 			{
+				
+
+
+
+                                                        
+
+				
 				Console.WriteLine("Du valde Tank!");
 			}
 			if (choiceParse == 3)
@@ -63,15 +70,15 @@ namespace NovemberProjektet
 			AssasinStats.Add(hp);
 			AssasinStats.Add(attack);
 			return List;
-			
+
 			/*int[] AssasinStats = {hp, attack};
 			return AssasinStats;*/
 		//}
 
-			
-			
-			
-			
-		
+
+
+
+
+
 	}
 }
