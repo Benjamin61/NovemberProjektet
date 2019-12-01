@@ -22,7 +22,7 @@ ______ _       _     _     _____ _                 _       _
          |___/                                                           
 ";
 			Console.WriteLine(GameName);
-            Console.WriteLine("Test");
+            Console.WriteLine("Testar");
 			Player1.FighterChoice();
 			
 			Fighter A = new Fighter(); //Skapar 2 fighter från classen som kallas A respektive B
