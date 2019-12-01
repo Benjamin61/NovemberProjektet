@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NovemberProjektet
 {
-	pblic class Fighter
+	public class Fighter
 	{
 		public float Dmg;
 		public float hp;
@@ -17,7 +17,7 @@ namespace NovemberProjektet
 			hp = generator.Next(100, 170);
 			return hp;
 		}
-		public virtual float Dmg() //Metod som slumpar fram dmg
+		public virtual float dmgDone() //Metod som slumpar fram dmg
 		{
 			Random generator = new Random();
 			 Dmg = generator.Next (15,25);

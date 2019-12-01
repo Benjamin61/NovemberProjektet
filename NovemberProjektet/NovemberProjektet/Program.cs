@@ -10,7 +10,9 @@ namespace NovemberProjektet
 	{
 		static void Main(string[] args)
 		{
-			/*Fighter Player1 = new Fighter();
+			
+
+			Fighter Player1 = new Fighter();
 			string GameName = @"
 ______ _       _     _     _____ _                 _       _             
 |  ___(_)     | |   | |   /  ___(_)               | |     | |            
@@ -25,7 +27,7 @@ ______ _       _     _     _____ _                 _       _
             Console.WriteLine("Testaren");
 			Player1.FighterChoice();
 			
-			Fighter A = new Fighter(); //Skapar 2 fighter från classen som kallas A respektive B
+			/*Fighter A = new Fighter(); //Skapar 2 fighter från classen som kallas A respektive B
 			Fighter B = new Fighter();
 			Console.Write("Ge ett namn till spelare A:");
 			string Anamn = A.NameDecide(); //Gör en string som kallas Anamn som = Namdecide metoden för fighter A 
@@ -69,7 +71,7 @@ ______ _       _     _     _____ _                 _       _
 
 			
 			Console.ReadKey();*/
-			Fighter A = new Fighter(); //Skapar 2 fighter från classen som kallas A respektive B
+			/*Fighter A = new Fighter(); //Skapar 2 fighter från classen som kallas A respektive B
 			Fighter B = new Fighter();
 			Console.Write("Ge ett namn till spelare A:");
 			string Anamn = A.NameDecide(); //Gör en string som kallas Anamn som = Namdecide metoden för fighter A 
@@ -109,7 +111,7 @@ ______ _       _     _     _____ _                 _       _
 			}
 			else { Console.WriteLine("oavgjort!"); } //Annars bli det oavgjort
 
-			Console.ReadKey();
+			Console.ReadKey();*/
 		}
 	}
 }
