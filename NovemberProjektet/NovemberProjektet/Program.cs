@@ -10,9 +10,11 @@ namespace NovemberProjektet
 	{
 		static void Main(string[] args)
 		{
-			
+			Player p1 = new Player();
+			Enemy e1 = new Enemy();
+			Fighter f1 = new Fighter();
 
-			Fighter Player1 = new Fighter();
+			
 			string GameName = @"
 ______ _       _     _     _____ _                 _       _             
 |  ___(_)     | |   | |   /  ___(_)               | |     | |            
@@ -24,9 +26,63 @@ ______ _       _     _     _____ _                 _       _
          |___/                                                           
 ";
 			Console.WriteLine(GameName);
-            Console.WriteLine("Testaren");
-			Player1.FighterChoice();
+            Console.WriteLine("Målet med detta spel är att du ska klara dig 5 stages");
+			Console.WriteLine("För varje stage så kommer din mostståndares stats att öka");
+			Console.WriteLine("Klicka enter när du är redo");
+			Console.ReadKey();
+			Console.Clear();
+			//f1.FighterChoice();
 			
+			 void PlayerName()
+			{
+				Console.WriteLine("Vad ska din spelare heta?");
+				name = Console.ReadLine();
+			Console.WriteLine("Vilken klass vill du vara?");
+			Console.WriteLine("[1] Assasin");
+			Console.WriteLine("[2] Tank");
+			Console.WriteLine("[3] Wizard");
+			Console.WriteLine("[4] Goblin");
+			Console.Write("Val:");
+			string choice = Console.ReadLine();
+			int choiceParse;
+			bool Translate = int.TryParse(choice, out choiceParse);
+			while (!Translate || choiceParse <1 || choiceParse >=5 ) //En while loop som körs så länge boolen inte lyckas eller choice parse inte är mellan 1 och 4
+			{
+				Console.WriteLine("Ogiltigt svar, prova igen!");
+				choice = Console.ReadLine();
+				Translate = int.TryParse(choice, out choiceParse);
+			}
+			if (choiceParse == 1) //Spelaren input = 1
+			{
+				Console.WriteLine("Du valde Assasin!");
+					Assasin a1 = new Assasin();
+				//AssasinHP(); //Skickas till metoden
+				
+
+			}
+			if (choiceParse == 2)
+			{
+				
+
+
+
+                                                        
+
+				
+				Console.WriteLine("Du valde Tank!");
+					Tank T1 = new Tank();
+			}
+			if (choiceParse == 3)
+			{
+				Console.WriteLine("Du valde Wizard!");
+					Wizard W1 = new Wizard();
+			}
+			if (choiceParse == 4)
+			{
+				Console.WriteLine("Du valde Goblin!");
+					Goblin G1 = new Goblin();
+			}
+			}
 			/*Fighter A = new Fighter(); //Skapar 2 fighter från classen som kallas A respektive B
 			Fighter B = new Fighter();
 			Console.Write("Ge ett namn till spelare A:");

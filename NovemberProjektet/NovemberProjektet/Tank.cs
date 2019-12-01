@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace NovemberProjektet
 {
-	class Tank
+	class Tank : Fighter
 	{
+		public override float dmgDone(
+		{
+			
+			float dmg = base.dmgDone();
+			float newdmg = dmg;
+			
+			Console.WriteLine(dmg);
+			Console.WriteLine(newdmg);
+			return  dmg;
+		}
+
+		public override float SetStats()
+		{
+			Random generator = new Random();
+			return base.SetStats();
+		}
 	}
 }

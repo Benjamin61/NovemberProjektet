@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NovemberProjektet
 {
-	class Assasin
+	class Assasin : Fighter
 	{
 	}
 }

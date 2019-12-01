@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NovemberProjektet
 {
-	class Wizard
+	class Wizard : Fighter
 	{
 	}
 }

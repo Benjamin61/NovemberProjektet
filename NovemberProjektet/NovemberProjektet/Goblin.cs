@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace NovemberProjektet
 {
-	class Goblin
+	class Goblin : Fighter
 	{
+		
 	}
 }
