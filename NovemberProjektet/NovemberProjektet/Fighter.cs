@@ -6,9 +6,28 @@ using System.Threading.Tasks;
 
 namespace NovemberProjektet
 {
-	class Fighter
+	pblic class Fighter
 	{
-		public string name; //Strings för att lagra informationen som körs i metoderna
+		public float Dmg;
+		public float hp;
+		public string name;
+		public virtual float SetStats() //Metod som slumpar fram hp
+		{
+			Random generator = new Random();
+			hp = generator.Next(100, 170);
+			return hp;
+		}
+		public virtual float Dmg() //Metod som slumpar fram dmg
+		{
+			Random generator = new Random();
+			 Dmg = generator.Next (15,25);
+        }
+
+		public void Hurt() //Metod som gör själv attacken och tar bort från hp
+		{
+			hp = hp - Dmg;
+		}
+		/*public string name; //Strings för att lagra informationen som körs i metoderna
 		private int hp;
 		public int SetHp() //Metod som används för att genererar random hp till båda karaktärerna
 		{
@@ -69,7 +88,7 @@ namespace NovemberProjektet
 
 
 
-			return enoughHP; //Retunerar boolen enoughHP
+			return enoughHP; //Retunerar boolen enoughHP*/
 
 		}
 

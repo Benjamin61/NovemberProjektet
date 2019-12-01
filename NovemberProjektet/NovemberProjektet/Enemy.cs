@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace NovemberProjektet
 {
-	class Enemy
+	 public class Enemy : Fighter
 	{
+		private int EnemyStage = 1; //Enemy startar på stage 1.
+		private Random generator = New Random();
+		public ovveride int Attack()
+		{
+			int dmg = base.Attack
+		}
 	}
 }
