@@ -403,6 +403,7 @@ ______ _       _     _     _____ _                 _       _
 			else { Console.WriteLine("oavgjort!"); } //Annars bli det oavgjort
 
 			Console.ReadKey();
+			//Helllol
 		
 	}
 }*/
