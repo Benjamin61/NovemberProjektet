@@ -8,69 +8,75 @@ namespace NovemberProjektet
 {
 	public class Fighter
 	{
-		
-		
-		public string name;
-		protected int stage = 0;
+
+
+		public string name; //Här är alla olika datatyper //Public för att man ska kunna välja namn från main
+		protected int stage = 0; //De andra är protected så att man enbart kommer åt dom från just denna klass och dess metoder eller de klasser om ärver från fighter
 		protected int hp = 0;
 		protected int choice = 0;
 		protected bool isDead = true;
-		
-        public virtual float SetHp() //Metod som slumpar fram hp
-		{
-			Random generator = new Random();
-			hp = generator.Next(100, 170);
+		protected int dmg = 0;
+		public virtual int SetHp() //Metod som slumpar fram hp //Då dessa metoder kommer användas av t,ex player och enemy så ska det vara en virtual
+		{//På så sätt kommer jag genom en override att kunna göra en egen version av metodern som är virtual
+			Random generator = new Random(); //En metod som sätter hp för en karatkrä som lagras i intet hp
+			hp = generator.Next(50, 60);
+			//hp = generator.Next(100, 170);
 			return hp;
 		}
-		public virtual float dmgDone() //Metod som slumpar fram dmg
+		public virtual int dmgDone() //Metod som slumpar fram dmg //Denna kan ändras senare av andra klasser då den är virtual
 		{
 			Random generator = new Random();
-			int dmg = 0;
+
 			if (choice == 1)
 			{
-			 dmg = generator.Next (5,40);
+				dmg = generator.Next(5, 40);
 			}
 			else
 			{
-				dmg = generator.Next (15,25);
+				dmg = generator.Next(15, 25);
 			}
-			return dmg;
-        }
 
-		public void Hurt(int taken) //Metod som gör själv attacken och tar bort från hp
+			return dmg;
+		}
+
+		public void Hurt(int taken) //Metod med en parametar där en int tas med utifrån metoden
 		{
 			hp = hp - taken;
+			if (hp < 0)
+			{
+				hp = 0; //När hp går under 0 sätts det till 0 eftersom man inte ka ha negativt med hp
+			}
 		}
-		public bool anyoneDead()
+		public bool anyoneDead() //En bool som checkar om någon är död
 		{
-			 if(hp == 0)
-			 {
+			if (hp == 0) //När hp blir till 0 så ändras boolen till false och retunerar
+			{
 				isDead = false;
-			 }
-			 return isDead;
-				
-}
+			}
+			return isDead;
+
 		}
-		public int HPLeft()
+
+		public int HPLeft() //En int metod som checkar hur mycket hp man har kvar och retunerar det sen
 		{
-			Console.WriteLine(name + "har nu" + hp + "hp");
+			Console.WriteLine(name + "har nu " + hp + "hp");
 			Console.WriteLine("Klick enter för att fortsätta");
 			Console.ReadKey();
 			return hp;
 
 		}
-		public virtual int HighOrLow()
+		public int HighOrLow() //En  int som får fram spelarens val. Denna behöver dock inte vara virtual
 		{
 			Console.WriteLine("Vill du göra en Hög risk attack[1] eller Låg risk[2]?");
 			Console.WriteLine("Var vänlig och skriv 1 eller 2");
-			string input = Console.ReadLine();
-			bool correctInput = int.TryParse(input, out choice);
-			while (!correctInput || choice !=1 && choice !=2)
+			string input = Console.ReadLine(); //Lagrar spelaren input i en string
+			bool correctInput = int.TryParse(input, out choice); //Försöker göra om spelarens input till en int
+			while (!correctInput || choice != 1 && choice != 2) //Om boolen misslyckas kommer den loop köras. Dock skulle loopen inte köras om man satte in t,ex 20 eftersom boolen är då lyckas. Därav att svaret måste vara 1 eller 2 också
 			{
-			  Console.WriteLine("Skriv 1 eller 2");
+				Console.WriteLine("Skriv 1 eller 2");
 				Console.WriteLine("Kom ihåg att bara svara i siffror");
-				input = Console.ReadLine();
-				correctInput = int.TryParse(input, out choice);
+				input = Console.ReadLine(); //Lagrar inputen igen
+				correctInput = int.TryParse(input, out choice); //Kör om boolen igen
 			}
 			if (choice == 1)
 			{
@@ -80,218 +86,16 @@ namespace NovemberProjektet
 			{
 				Console.WriteLine("Du valde en låg risk");
 			}
+			return choice;
 		}
 
-	public int NextStage()
-	{
-		stage = stage +1;
-		return stage;
+		public int NextStage() //En int som håller koll på vilken stage man är på och adderar 1 på ens stage när man besegrar en boss
+		{
+			stage = stage + 1;
+			return stage;
 
+		}
 	}
-	public int whatStage()
-	{
-		return stage;
-	}
-		/*public string name; //Strings för att lagra informationen som körs i metoderna
-		private int hp;
-		public int SetHp() //Metod som används för att genererar random hp till båda karaktärerna
-		{
-			Random generator = new Random(); //Random generator
-			hp = generator.Next(20, 41); //Sätter in ett random nummer mellan 20 och 40 till inten hp
-			return hp; //retunerar värdet från det som körs ovan
-		}
-
-
-		//List<string> FighterName = new List<string>();//
-		public string NameDecide() //Metod för att namnge spelarna
-		{
-
-			name = Console.ReadLine(); // stringen name = spelarens input
-			Console.WriteLine("Du namngav spelaren: [" + name + "]");
-
-
-			return name; //retunerar stringen
-		}
-
-		public int Attack() //Metod som avger hur mycket damage man ska göra
-		{
-			Random generator = new Random();
-			int dmg = generator.Next(2, 7); //Skapar en int som får ett värde från generatorn mellan 2 och 6
-			return dmg; //Retunerar int dmg med ett värde
-
-		}
-
-		public void Hurt(int dmg) //Metod som tar hp minus dmg från tidigare metoder
-		{
-			hp = hp - dmg; //Gör om hp till hp - dmg
-
-			if (hp < 0) //Om man tar skada så att ens hp bli under 0 så kommer det bara displaya 0, man kan inte ha negativt hp
-			{
-				hp = 0;
-			}
-		}
-
-		public int GetHp() //Metod som skriver ut spelarens hp
-		{
-
-			Console.WriteLine(name + " har nu " + hp + "hp."); //Skriver ut hp man har nu
-
-			return hp; //Retunerar hp
-
-		}
-
-
-		public bool IsAlive() //En bool för att kolla så att spelaren är vid liv
-		{
-			bool enoughHP = false; //Sätter boolen enoughHP till false som default
-
-			if (hp >= 1) //Om spelarens hp är större eller lika med 1 så är enoughHP true
-			{
-				enoughHP = true;
-			}
-
-
-
-
-			return enoughHP; //Retunerar boolen enoughHP*/
-
-		}
-
-	}
-	/*class Fighter
-	{
-		public int hp = 100;
-		public int attack = 5;
-		public int FighterChoice()
-		{
-
-
-			Console.WriteLine("Välkommen! Var god och välj en karaktär du vill ha, välj med hjälp av siffrorna.");
-			Console.WriteLine("[1] Assasin");
-			Console.WriteLine("[2] Tank");
-			Console.WriteLine("[3] Wizard");
-			Console.WriteLine("[4] Goblin");
-			Console.Write("Val:");
-			string choice = Console.ReadLine();
-			int choiceParse;
-			bool Translate = int.TryParse(choice, out choiceParse);
-			while (!Translate || choiceParse <1 || choiceParse >=5 ) //En while loop som körs så länge boolen inte lyckas eller choice parse inte är mellan 1 och 4
-			{
-				Console.WriteLine("Ogiltigt svar, prova igen!");
-				choice = Console.ReadLine();
-				Translate = int.TryParse(choice, out choiceParse);
-			}
-			if (choiceParse == 1) //Spelaren input = 1
-			{
-				Console.WriteLine("Du valde Assasin!");
-				//AssasinHP(); //Skickas till metoden
-				Console.WriteLine(hp);
-
-			}
-			if (choiceParse == 2)
-			{
-				
-
-
-
-                                                        
-
-				
-				Console.WriteLine("Du valde Tank!");
-			}
-			if (choiceParse == 3)
-			{
-				Console.WriteLine("Du valde Wizard!");
-			}
-			if (choiceParse == 4)
-			{
-				Console.WriteLine("Du valde Goblin!");
-			}
-
-
-
-
-			return choiceParse;
-		}
-        		public string name; //Strings för att lagra informationen som körs i metoderna
-		private int hp;
-		public int SetHp() //Metod som används för att genererar random hp till båda karaktärerna
-		{
-			Random generator = new Random(); //Random generator
-			hp = generator.Next(20, 41); //Sätter in ett random nummer mellan 20 och 40 till inten hp
-			return hp; //retunerar värdet från det som körs ovan
-		}
-
-
-		//List<string> FighterName = new List<string>();//
-		public string NameDecide() //Metod för att namnge spelarna
-		{
-			
-			name = Console.ReadLine(); // stringen name = spelarens input
-			Console.WriteLine("Du namngav spelaren: [" + name + "]" );
-
-			
-			return name; //retunerar stringen
-		}
-
-		public int Attack() //Metod som avger hur mycket damage man ska göra
-		{
-			Random generator = new Random();
-			int dmg = generator.Next(2, 7); //Skapar en int som får ett värde från generatorn mellan 2 och 6
-			return dmg; //Retunerar int dmg med ett värde
-
-		}
-
-		public void Hurt(int dmg) //Metod som tar hp minus dmg från tidigare metoder
-		{
-			hp = hp - dmg; //Gör om hp till hp - dmg
-
-			if (hp < 0) //Om man tar skada så att ens hp bli under 0 så kommer det bara displaya 0, man kan inte ha negativt hp
-			{
-				hp = 0;
-			}
-		}
-
-		public int GetHp() //Metod som skriver ut spelarens hp
-		{
-
-			Console.WriteLine(name + " har nu " +  hp + "hp."); //Skriver ut hp man har nu
-
-			return hp; //Retunerar hp
-			
-		}
-
-
-		public bool IsAlive() //En bool för att kolla så att spelaren är vid liv
-		{
-			bool enoughHP = false; //Sätter boolen enoughHP till false som default
-
-			if (hp >= 1) //Om spelarens hp är större eller lika med 1 så är enoughHP true
-			{
-				enoughHP = true;
-			}
-
-
-
-
-			return enoughHP; //Retunerar boolen enoughHP
-            }
-		/*public int AssasinHP()
-		{
-			List<int> AssasinStats = new List<int>();
-			hp = hp / 2;
-			attack = attack * 2;
-			AssasinStats.Add(hp);
-			AssasinStats.Add(attack);
-			return List;
-
-			/*int[] AssasinStats = {hp, attack};
-			return AssasinStats;*/
-	//}
-
-
-
-
-
-
-	//}
+}
+	
+	
