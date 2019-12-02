@@ -14,13 +14,17 @@ namespace NovemberProjektet
 		
         public override int dmgDone()
 		{
-			
+			int dmg = base.dmgDone();
+			dmg = dmg/2 +1;
+			Console.WriteLine(name + "gjorde" + dmg + "dmg");
+			return dmg;
 		}
 
-		public override float SetStats()
+		public override int SetStats()
 		{
-			 base.SetStats();
-			hp = enemyHpGenerator.Next(400, 550);
+			 base.SetHp();
+			hp = enemysGenerator.Next(400, 550);
+			return hp;
 		}
 		public void whatEnemy()
 		{
@@ -29,9 +33,9 @@ namespace NovemberProjektet
 			Console.WriteLine("Din motståndare är" + name);
 			Console.WriteLine("[Stage" + EnemyStage + "]");
 		}
-		public int newStage()
-			{
-               EnemyStage = EnemyStage + 1;
-			}
+		//public int newStage()
+			//{
+             //  EnemyStage = EnemyStage + 1;
+			//}
 	}
 }
