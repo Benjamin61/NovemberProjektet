@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace NovemberProjektet
 {
-	class Player : Fighter
+	 public class Player : Fighter
 	{
-		
+		static Random generator = new Random();
 	}
+	public override int SetHp()
+	{
+		base.SetHp();
+		hp.gen.Next(400, 700);
+	}
+	public override int 
 }
