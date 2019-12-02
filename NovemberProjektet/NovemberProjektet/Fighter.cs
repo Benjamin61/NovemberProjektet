@@ -12,6 +12,8 @@ namespace NovemberProjektet
 		
 		public string name;
 		protected int stage = 0;
+		protected int hp = 0;
+		protected int choice = 0;
 		protected bool isDead = true;
 		
         public virtual float SetHp() //Metod som slumpar fram hp
