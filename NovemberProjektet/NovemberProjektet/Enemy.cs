@@ -8,14 +8,13 @@ namespace NovemberProjektet
 {
 	 public class Enemy : Fighter
 	{
-		private int EnemyStage = 1; //Enemy startar på stage 1.
-		 Random enemyStatsGenerator = new Random();
+		//private int EnemyStage = 1; //Enemy startar på stage 1.
+		 static Random enemysGenerator = new Random();
 
 		
-        public override float dmgDone()
+        public override int dmgDone()
 		{
-			float Edmg = base.dmgDone();
-				return Edmg;
+			
 		}
 
 		public override float SetStats()

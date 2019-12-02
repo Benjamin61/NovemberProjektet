@@ -8,30 +8,88 @@ namespace NovemberProjektet
 {
 	public class Fighter
 	{
-		Random generator = new Random();
-		public float Dmg;
-		public float hp;
+		
+		
 		public string name;
-		public virtual float SetStats() //Metod som slumpar fram hp
+		protected int stage = 0;
+		protected bool isDead = true;
+		
+        public virtual float SetHp() //Metod som slumpar fram hp
 		{
-			
+			Random generator = new Random();
 			hp = generator.Next(100, 170);
 			return hp;
 		}
 		public virtual float dmgDone() //Metod som slumpar fram dmg
 		{
 			Random generator = new Random();
-			 Dmg = generator.Next (15,25);
+			int dmg = 0;
+			if (choice == 1)
+			{
+			 dmg = generator.Next (5,40);
+			}
+			else
+			{
+				dmg = generator.Next (15,25);
+			}
+			return dmg;
         }
 
-		public void Hurt() //Metod som gör själv attacken och tar bort från hp
+		public void Hurt(int taken) //Metod som gör själv attacken och tar bort från hp
 		{
-			hp = hp - Dmg;
+			hp = hp - taken;
 		}
 		public bool anyoneDead()
+		{
+			 if(hp == 0)
+			 {
+				isDead = false;
+			 }
+			 return isDead;
+				
+}
+		}
+		public int HPLeft()
+		{
+			Console.WriteLine(name + "har nu" + hp + "hp");
+			Console.WriteLine("Klick enter för att fortsätta");
+			Console.ReadKey();
+			return hp;
+
+		}
+		public virtual int HighOrLow()
+		{
+			Console.WriteLine("Vill du göra en Hög risk attack[1] eller Låg risk[2]?");
+			Console.WriteLine("Var vänlig och skriv 1 eller 2");
+			string input = Console.ReadLine();
+			bool correctInput = int.TryParse(input, out choice);
+			while (!correctInput || choice !=1 && choice !=2)
 			{
-			 if(hp == 0);
+			  Console.WriteLine("Skriv 1 eller 2");
+				Console.WriteLine("Kom ihåg att bara svara i siffror");
+				input = Console.ReadLine();
+				correctInput = int.TryParse(input, out choice);
 			}
+			if (choice == 1)
+			{
+				Console.WriteLine("Du valde en hög risk");
+			}
+			else
+			{
+				Console.WriteLine("Du valde en låg risk");
+			}
+		}
+
+	public int NextStage()
+	{
+		stage = stage +1;
+		return stage;
+
+	}
+	public int whatStage()
+	{
+		return stage;
+	}
 		/*public string name; //Strings för att lagra informationen som körs i metoderna
 		private int hp;
 		public int SetHp() //Metod som används för att genererar random hp till båda karaktärerna

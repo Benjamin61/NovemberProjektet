@@ -8,7 +8,7 @@ namespace NovemberProjektet
 {
 	class Tank : Fighter
 	{
-		public override float dmgDone(
+		public override float dmgDone()
 		{
 			
 			float dmg = base.dmgDone();
@@ -22,6 +22,7 @@ namespace NovemberProjektet
 		public override float SetStats()
 		{
 			Random generator = new Random();
+			hp = enemygenerator.Next(40, 50);
 			return base.SetStats();
 		}
 	}
